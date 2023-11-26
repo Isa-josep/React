@@ -3,6 +3,7 @@
     align-items: center;
     color: #fff;
     font-size: .8rem;
+    justify-content: space-between;
 }
 
 .tw-followcard-header{
@@ -27,9 +28,21 @@
 }
 
 .tw-followcard-button{
+    cursor: pointer;
     margin-left: 16px;
     border: 0;
     border-radius: 999px;
     padding: 6px 16px;
     font-weight: bolder;
+    border: 1px solid #000;
+    transition: .3s ease background-color;
+}
+.tw-followcard-button.isfollowing{
+    border: 1px solid red;
+}
+.tw-followcard-button:hover{
+    background: rgba(255,255,255,.1);
+}
+.tw-followcard-button.isfollowing:hover{
+    background: red;
 }
