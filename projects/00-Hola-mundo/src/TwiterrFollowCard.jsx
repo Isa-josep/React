@@ -1,14 +1,15 @@
 import { useState } from "react"
-export function Card({children, userName, name, isfollowing}){
-    // const state=useState(false);
-    // const isfollowing=state[0];
-    // const setisfollowing=state[1];
+export function Card({children, userName, name}){
+    const [isFollowing, setIsFollowing] = useState(false)
 
     const imageSrc = `https://unavatar.io/${userName}`
-    const text =isfollowing ? 'Siguiendo' : 'Seguir'
-    const buttonClassName = isfollowing 
+    const text =isFollowing ? 'Siguiendo' : 'Seguir'
+    const buttonClassName = isFollowing 
     ? 'tw-followcard-button isfollowing' 
     : 'tw-followcard-button'
+    const handleClick = () => {
+        setIsFollowing(!isFollowing);
+    }
     return(
         <article className='tw-followcard'>
         <header className='tw-followcard-header'>
@@ -19,7 +20,7 @@ export function Card({children, userName, name, isfollowing}){
             </div>
         </header>
         <aside>
-          <button className={buttonClassName}>{text}</button>
+          <button className={buttonClassName} onClick={handleClick} >{text} <span className="tw-followcard-stopFollow">Dejar de seguir</span></button>
         </aside>
     </article>
     )
